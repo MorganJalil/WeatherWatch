@@ -91,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
 
         final EditText editText = (EditText)alertLayout.findViewById(R.id.edit_text);
 
+
         //final String message = editText.getText().toString();
 
 
@@ -231,6 +232,7 @@ public class MainActivity extends AppCompatActivity {
         });
         AlertDialog dialog = alert.create();
         dialog.show();
+
 
 
     }
