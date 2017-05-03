@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
                     JSONObject jsonObject = new JSONObject(buf.toString());
 
 
-
+                    // country
                     JSONObject sysObj = jsonObject.getJSONObject("sys");
 
                     String country = sysObj.getString("country");
