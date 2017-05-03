@@ -12,7 +12,7 @@
 
     android:fitsSystemWindows="true"
 
-    tools:context="rmuti.lab2.MainActivity">
+    tools:context=".MainActivity">
 
 
 
