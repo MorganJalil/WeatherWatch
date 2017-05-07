@@ -24,15 +24,6 @@
 
     tools:showIn="@layout/activity_main">
 
-
-
-
-
-
-
-   
-
-
     <TextView
 
         android:layout_width="wrap_content"
@@ -45,12 +36,13 @@
 
         android:id="@+id/country_text"
 
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="36dp"
 
-        android:layout_marginRight="50dp"
-
-        android:layout_marginEnd="50dp"
-        />
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/humidity"
+        android:layout_toEndOf="@+id/humidity"
+        android:layout_marginLeft="48dp"
+        android:layout_marginStart="48dp" />
 
 
     <TextView

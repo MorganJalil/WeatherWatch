@@ -28,6 +28,7 @@ import android.widget.Button;
 
 import android.widget.EditText;
 
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -166,6 +167,15 @@ public class MainActivity extends AppCompatActivity {
                         countryText.setText(country);
 
 
+                        //Icon
+
+                        JSONObject iconObj = jsonObject.getJSONObject("weather");
+
+                        String icon = iconObj.getString("icon");
+
+                        ImageView iconImage = (ImageView)findViewById(R.id.icon_image);
+                        iconImage.setImageBitmap(icon);
+
 
                         //temp
 
@@ -186,7 +196,6 @@ public class MainActivity extends AppCompatActivity {
                         JSONObject mainObj = jsonObject.getJSONObject("main");
 
                         String pressure = mainObj.getString("pressure");
-
 
 
                         TextView pressureText = (TextView)findViewById(R.id.pressure_text);
