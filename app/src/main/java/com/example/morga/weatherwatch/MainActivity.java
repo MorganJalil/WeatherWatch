@@ -167,14 +167,7 @@ public class MainActivity extends AppCompatActivity {
                         countryText.setText(country);
 
 
-                        //Icon
 
-                        JSONObject iconObj = jsonObject.getJSONObject("weather");
-
-                        String icon = iconObj.getString("icon");
-
-                        ImageView iconImage = (ImageView)findViewById(R.id.icon_image);
-                        iconImage.setImageBitmap(icon);
 
 
                         //temp
