@@ -248,7 +248,7 @@ public class MainActivity extends AppCompatActivity {
 
                     Snackbar snackbar = Snackbar
 
-                            .make(coordinatorLayout, "Please enter a city", Snackbar.LENGTH_LONG);
+                            .make(coordinatorLayout, "Vänligen skriv in en stad", Snackbar.LENGTH_LONG);
 
                     snackbar.show();
 

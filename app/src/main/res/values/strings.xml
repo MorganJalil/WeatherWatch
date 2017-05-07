@@ -1,9 +1,7 @@
 <resources>
     <string name="app_name">WeatherWatch</string>
-
-
-
-        <string name="action_settings">Settings</string>
+    <string name="hint_text">Stad, land</string>
+    <string name="action_settings">Settings</string>
 
 
 </resources>
