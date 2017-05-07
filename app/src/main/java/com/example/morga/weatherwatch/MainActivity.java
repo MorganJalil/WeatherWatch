@@ -166,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    public void newSearch(View view) {
+    public void newSearch(final View view) {
 
 
 
@@ -186,17 +186,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
         //final String message = editText.getText().toString();
-
-
-
-
-
-
-
-
-
-
 
         alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
 
@@ -260,13 +251,11 @@ public class MainActivity extends AppCompatActivity {
 
                     try {
 
+                        String message = editText.getText().toString();
 
-
-                        final String message = editText.getText().toString();
-
-
-
-
+                        TextView mText;
+                        mText = (TextView)findViewById(R.id.name_text);
+                        mText.setText(message);
 
 
 
@@ -307,54 +296,21 @@ public class MainActivity extends AppCompatActivity {
                         JSONObject jsonObject = new JSONObject(buf.toString());
 
 
+                        // name
 
 
 
                         // country
 
                         JSONObject sysObj = jsonObject.getJSONObject("sys");
-
-
-
                         String country = sysObj.getString("country");
-
-
-
-
-
-
-
                         TextView countryText = (TextView)findViewById(R.id.country_text);
-
-
-
                         countryText.setText(country);
 
-
-
-
-
-
-
                         //temp
-
-
-
                         JSONObject tempObj = jsonObject.getJSONObject("main");
-
-
-
                         String temp = tempObj.getString("temp");
-
-
-
-
-
-
-
                         TextView tempText = (TextView)findViewById(R.id.temp_text);
-
-
 
                         tempText.setText(temp);
 
@@ -365,24 +321,9 @@ public class MainActivity extends AppCompatActivity {
 
 
                         //pressure
-
-
-
                         JSONObject mainObj = jsonObject.getJSONObject("main");
-
-
-
                         String pressure = mainObj.getString("pressure");
-
-
-
-
-
-
-
                         TextView pressureText = (TextView)findViewById(R.id.pressure_text);
-
-
 
                         pressureText.setText(pressure);
 
@@ -409,6 +350,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                         humidityText.setText(humidity);
+
 
 
 

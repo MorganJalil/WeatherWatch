@@ -28,8 +28,8 @@
 
         android:text="                "
 
-        android:id="@+id/city_name"
-        android:gravity="top"/>
+        android:id="@+id/name_text"
+        android:gravity="center"/>
 
 
 
