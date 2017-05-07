@@ -1,6 +1,8 @@
 package com.example.morga.weatherwatch;
 
+import android.content.Context;
 import android.content.DialogInterface;
+import android.os.AsyncTask;
 import android.os.Bundle;
 
 import android.os.StrictMode;
@@ -24,14 +26,26 @@ import android.view.Menu;
 
 import android.view.MenuItem;
 
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 
 import android.widget.EditText;
 
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.location.places.AutocompleteFilter;
+import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
+import com.google.android.gms.location.places.ui.PlaceSelectionListener;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 
 import org.json.JSONObject;
@@ -40,10 +54,14 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 
 import java.net.URL;
 
+import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -54,32 +72,19 @@ public class MainActivity extends AppCompatActivity {
 
     private CoordinatorLayout coordinatorLayout;
 
+
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
-
         coordinatorLayout = (CoordinatorLayout) findViewById(R.id.main_layout);
-
         //setSupportActionBar(toolbar);
 
-
-
-
-
-
-
-
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-
         StrictMode.setThreadPolicy(policy);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);}
-
+    }
 
 
     public void newSearch(View view) {
@@ -88,12 +93,36 @@ public class MainActivity extends AppCompatActivity {
         View alertLayout = myInflater.inflate(R.layout.new_search, null);
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setView(alertLayout);
-
         final EditText editText = (EditText)alertLayout.findViewById(R.id.edit_text);
 
 
         //final String message = editText.getText().toString();
 
+        final PlaceAutocompleteFragment places = (PlaceAutocompleteFragment)
+                getFragmentManager().findFragmentById(R.id.place_autocomplete_fragment);
+        places.setOnPlaceSelectedListener(new PlaceSelectionListener() {
+
+
+
+            @Override
+            public void onPlaceSelected(Place place) {
+
+                Toast.makeText(getApplicationContext(), place.getName(), Toast.LENGTH_SHORT).show();
+
+                AutocompleteFilter typeFilter = new AutocompleteFilter.Builder()
+                        .setTypeFilter(AutocompleteFilter.TYPE_FILTER_CITIES)
+                        .setTypeFilter(AutocompleteFilter.TYPE_FILTER_REGIONS)
+                        .build();
+                places.setFilter(typeFilter);
+
+            }
+
+            @Override
+            public void onError(Status status) {
+
+                Toast.makeText(getApplicationContext(), status.toString(), Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
 
@@ -283,5 +312,6 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
 
     }
+
 
 }
