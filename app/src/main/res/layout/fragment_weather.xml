@@ -6,7 +6,7 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
-    tools:context=".MainActivity$PlaceholderFragment" >
+    tools:context="com.example.morga.weatherwatch.MainActivity" >
 
 
 
