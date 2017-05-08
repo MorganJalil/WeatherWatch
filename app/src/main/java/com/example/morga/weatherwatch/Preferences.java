@@ -15,8 +15,7 @@ public class Preferences {
             prefs = activity.getPreferences(Activity.MODE_PRIVATE);
         }
 
-        // If the user has not chosen a city yet, return
-        // Sydney as the default city
+        //Första staden som syns när man startar appen för första gången
         String getCity(){
             return prefs.getString("city", "Stockholm, SE");
         }
