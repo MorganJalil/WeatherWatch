@@ -17,8 +17,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="250sp"
-        android:textColor="#8A2E60"/>
+        android:textSize="220sp"
+        android:textColor="#ffffff"/>
 
     <TextView
         android:id="@+id/current_temperature_field"
@@ -27,7 +27,8 @@
         android:layout_below="@+id/weather_icon"
         android:layout_centerHorizontal="true"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textSize="40sp" />
+        android:textSize="80sp"
+        android:textColor="#ffffff"/>
 
     <TextView
         android:id="@+id/details_field"
