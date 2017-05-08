@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Weather Watch</string>
+    <string name="app_name">Väder Appen</string>
     <string name="hint_text">Stad, land</string>
     <string name="action_settings">Settings</string>
 

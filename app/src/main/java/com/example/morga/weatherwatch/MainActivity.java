@@ -1,6 +1,9 @@
 package com.example.morga.weatherwatch;
 import android.content.DialogInterface;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v7.app.AlertDialog;
@@ -46,10 +49,14 @@ public class MainActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
 
         getMenuInflater().inflate(R.menu.weather, menu);
+        Drawable drawable = menu.findItem(R.id.change_city).getIcon();
+        if (drawable != null) {
+            drawable.mutate();
+            drawable.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
+        }
+            return true;
 
-        return true;
-
-    }
+        }
 
 
 
@@ -84,9 +91,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
-
-
 
 
     private void showInputDialog(){
