@@ -91,6 +91,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void showInputDialog(){
 
+
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         builder.setTitle("Byt stad");

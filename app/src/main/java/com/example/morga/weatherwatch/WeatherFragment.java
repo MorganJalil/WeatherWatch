@@ -14,6 +14,8 @@ import android.widget.Toast;
 import org.json.JSONObject;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -102,9 +104,13 @@ public class WeatherFragment extends Fragment {
             currentTemperatureField.setText(
                     String.format("%.2f", main.getDouble("temp"))+ " ℃");
 
-            DateFormat df = DateFormat.getDateTimeInstance();
-            String updatedOn = df.format(new Date(json.getLong("dt")*1000));
-            updatedField.setText("Senast Uppdaterad: " + updatedOn);
+
+            //Hämta datum från mobilen
+            Date today = Calendar.getInstance().getTime();
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd, HH:mm");
+            String folderName = formatter.format(today);
+
+            updatedField.setText("Senast Uppdaterad: " + folderName);
 
             setWeatherIcon(details.getInt("id"),
                     json.getJSONObject("sys").getLong("sunrise") * 1000,
