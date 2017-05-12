@@ -124,32 +124,6 @@ public class MainActivity extends AppCompatActivity {
         } else if (requestCode == RESULT_CANCELED) {
 
 
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-            builder.setTitle("Sök stad");
-
-            final EditText input = new EditText(this);
-            input.setHint(" Stad, landskod eller postnummer");
-
-            input.setInputType(InputType.TYPE_CLASS_TEXT);
-
-            builder.setView(input);
-
-            builder.setPositiveButton("Sök", new DialogInterface.OnClickListener() {
-
-                @Override
-
-                public void onClick(DialogInterface dialog, int which) {
-
-                    changeCity(input.getText().toString());
-
-                }
-
-            });
-
-            builder.show();
-
-
         }
     }
 
