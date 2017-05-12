@@ -36,6 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/current_temperature_field"
         android:layout_centerHorizontal="true"
+        android:textColor="#ffffff"
         android:textAppearance="?android:attr/textAppearanceMedium"/>
 
 
@@ -47,6 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:textColor="#ffffff"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView

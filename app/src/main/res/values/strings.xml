@@ -18,7 +18,7 @@
         <string name="weather_thunder">&#xf01e;</string>
         <string name="weather_drizzle">&#xf01c;</string>
          
-        <string name="place_not_found">Något gick fel.</string>   
+        <string name="place_not_found">Något gick fel, vänligen försök igen.</string>   
          
 
 </resources>
