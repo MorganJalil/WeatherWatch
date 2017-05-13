@@ -1,5 +1,6 @@
 package com.example.morga.weatherwatch;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
@@ -14,8 +15,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.ui.PlaceAutocomplete;
 import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
 import com.google.android.gms.location.places.ui.PlaceSelectionListener;
 
@@ -93,34 +97,34 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void showInputDialog(){
+    private void showInputDialog() {
+
+        int PLACE_AUTOCOMPLETE_REQUEST_CODE = 1;
+        try {
+            Intent intent =
+                    new PlaceAutocomplete.IntentBuilder(PlaceAutocomplete.MODE_OVERLAY)
+                            .build(this);
+            startActivityForResult(intent, PLACE_AUTOCOMPLETE_REQUEST_CODE);
+
+        } catch (GooglePlayServicesRepairableException |
+
+        GooglePlayServicesNotAvailableException e){
+            // TODO: Handle the error.
+        }
+    }
 
 
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK) {
+            Place place = PlaceAutocomplete.getPlace(this, data);
+            //latlong = place.getLatLng();
+            changeCity(place.getAddress().toString());
+        } else if (resultCode == PlaceAutocomplete.RESULT_ERROR) {
+            Status status = PlaceAutocomplete.getStatus(this, data);
+        } else if (requestCode == RESULT_CANCELED) {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        builder.setTitle("Byt stad");
-
-        final EditText input = new EditText(this);
-
-        input.setInputType(InputType.TYPE_CLASS_TEXT);
-
-        builder.setView(input);
-
-        builder.setPositiveButton("Sök", new DialogInterface.OnClickListener() {
-
-            @Override
-
-            public void onClick(DialogInterface dialog, int which) {
-
-                changeCity(input.getText().toString());
-
-            }
-
-        });
-
-        builder.show();
-
+        }
     }
 
     public void changeCity (String city) {
