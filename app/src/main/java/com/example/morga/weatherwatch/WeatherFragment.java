@@ -53,15 +53,12 @@ public class WeatherFragment extends Fragment {
             return rootView;
         }
 
-
-
     @Override
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         weatherFont = Typeface.createFromAsset(getActivity().getAssets(), "fonts/weather.ttf");
         updateWeatherData(new Preferences(getActivity()).getCity());
-
     }
 
     private void updateWeatherData(final String city){
@@ -117,7 +114,7 @@ public class WeatherFragment extends Fragment {
                     json.getJSONObject("sys").getLong("sunset") * 1000);
 
         }catch(Exception e){
-            Log.e("SimpleWeather", "One or more fields not found in the JSON data");
+            Log.d("Vädret:", "Hittar inte i Json data");
         }
     }
 
@@ -126,59 +123,33 @@ public class WeatherFragment extends Fragment {
     private void setWeatherIcon(int actualId, long sunrise, long sunset){
 
         int id = actualId / 100;
-
         String icon = "";
-
         if(actualId == 800){
-
             long currentTime = new Date().getTime();
-
             if(currentTime>=sunrise && currentTime<sunset) {
-
                 icon = getActivity().getString(R.string.weather_sunny);
-
             } else {
-
                 icon = getActivity().getString(R.string.weather_clear_night);
-
             }
-
         } else {
-
             switch(id) {
-
                 case 2 : icon = getActivity().getString(R.string.weather_thunder);
-
                     break;
-
                 case 3 : icon = getActivity().getString(R.string.weather_drizzle);
-
                     break;
-
                 case 7 : icon = getActivity().getString(R.string.weather_foggy);
-
                     break;
-
                 case 8 : icon = getActivity().getString(R.string.weather_cloudy);
-
                     break;
-
                 case 6 : icon = getActivity().getString(R.string.weather_snowy);
-
                     break;
-
                 case 5 : icon = getActivity().getString(R.string.weather_rainy);
-
                     break;
-
             }
-
         }
-
         weatherIcon.setText(icon);
 
     }
-
 
 
     public void changeCity(String city){

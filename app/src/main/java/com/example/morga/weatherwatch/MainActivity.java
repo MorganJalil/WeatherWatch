@@ -37,21 +37,13 @@ public class MainActivity extends AppCompatActivity {
                     .add(R.id.container, new WeatherFragment())
                     .commit();
         }
-
-
-
-
-
     }
-
-
 
     @Override
 
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        // Inflate the menu; this adds items to the action bar if it is present.
-
+        //menyknappen, vit färg och -->change city
         getMenuInflater().inflate(R.menu.weather, menu);
         Drawable drawable = menu.findItem(R.id.change_city).getIcon();
         if (drawable != null) {
@@ -63,40 +55,21 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-
     @Override
 
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        // Handle action bar item clicks here. The action bar will
-
-        // automatically handle clicks on the Home/Up button, so long
-
-        // as you specify a parent activity in AndroidManifest.xml.
-
-		/*int id = item.getItemId();
-
-		if (id == R.id.action_settings) {
-
-			return true;
-
-		}
-
-		return super.onOptionsItemSelected(item);*/
-
         if(item.getItemId() == R.id.change_city){
 
             showInputDialog();
-
         }
-
         return false;
 
 
 
     }
 
-
+// När man trycker på menyknappen startar detta
     private void showInputDialog() {
 
         int PLACE_AUTOCOMPLETE_REQUEST_CODE = 1;
