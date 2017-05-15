@@ -5,6 +5,6 @@
     android:layout_height="match_parent"
     tools:context="com.example.morga.weatherwatch.MainActivity"
     tools:ignore="MergeRootFrame"
-    android:background="#ff5c8d"
+    android:background="@drawable/gradient"
     />
 

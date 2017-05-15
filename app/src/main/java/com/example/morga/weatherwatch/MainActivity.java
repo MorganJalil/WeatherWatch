@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
+// tar valet och lägger adressen som sträng i changecity
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
             Place place = PlaceAutocomplete.getPlace(this, data);
@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
-
+// skickar strängen till klassen weather fragment samt sätter valet som preference
     public void changeCity (String city) {
         WeatherFragment wf = (WeatherFragment)getFragmentManager()
                 .findFragmentById(R.id.container);
