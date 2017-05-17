@@ -118,7 +118,7 @@ public class WeatherFragment extends Fragment {
         }
     }
 
-
+// väderikoner, hämtar från ttf fil i assets, i strings finns vilken "bokstav" den ska hämta som ikon
     private void setWeatherIcon(int actualId, long sunrise, long sunset) {
 
         int id = actualId / 100;
