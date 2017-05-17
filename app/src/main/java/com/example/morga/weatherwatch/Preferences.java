@@ -9,18 +9,18 @@ import android.content.SharedPreferences;
 
 public class Preferences {
 
-        SharedPreferences prefs;
+    SharedPreferences prefs;
 
-        public Preferences(Activity activity){
-            prefs = activity.getPreferences(Activity.MODE_PRIVATE);
-        }
+    public Preferences(Activity activity) {
+        prefs = activity.getPreferences(Activity.MODE_PRIVATE);
+    }
 
-        //Första staden som syns när man startar appen för första gången
-        String getCity(){
-            return prefs.getString("city", "Stockholm, SE");
-        }
+    //Första staden som syns när man startar appen för första gången
+    String getCity() {
+        return prefs.getString("city", "Stockholm, SE");
+    }
 
-        void setCity(String city){
-            prefs.edit().putString("city", city).commit();
-        }
+    void setCity(String city) {
+        prefs.edit().putString("city", city).commit();
+    }
 }

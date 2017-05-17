@@ -1,4 +1,5 @@
 package com.example.morga.weatherwatch;
+
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -22,7 +23,6 @@ import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlaceAutocomplete;
 import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
 import com.google.android.gms.location.places.ui.PlaceSelectionListener;
-
 
 
 public class MainActivity extends AppCompatActivity {
@@ -50,26 +50,25 @@ public class MainActivity extends AppCompatActivity {
             drawable.mutate();
             drawable.setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_ATOP);
         }
-            return true;
+        return true;
 
-        }
+    }
 
 
     @Override
 
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        if(item.getItemId() == R.id.change_city){
+        if (item.getItemId() == R.id.change_city) {
 
             showInputDialog();
         }
         return false;
 
 
-
     }
 
-// När man trycker på menyknappen startar detta
+    // När man trycker på menyknappen startar detta
     private void showInputDialog() {
 
         int PLACE_AUTOCOMPLETE_REQUEST_CODE = 1;
@@ -81,12 +80,12 @@ public class MainActivity extends AppCompatActivity {
 
         } catch (GooglePlayServicesRepairableException |
 
-        GooglePlayServicesNotAvailableException e){
+                GooglePlayServicesNotAvailableException e) {
             // TODO: Handle the error.
         }
     }
 
-// tar valet och lägger adressen som sträng i changecity
+    // tar valet och lägger adressen som sträng i changecity
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
             Place place = PlaceAutocomplete.getPlace(this, data);
@@ -99,9 +98,10 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
-// skickar strängen till klassen weather fragment samt sätter valet som preference
-    public void changeCity (String city) {
-        WeatherFragment wf = (WeatherFragment)getFragmentManager()
+
+    // skickar strängen till klassen weather fragment samt sätter valet som preference
+    public void changeCity(String city) {
+        WeatherFragment wf = (WeatherFragment) getFragmentManager()
                 .findFragmentById(R.id.container);
         wf.changeCity(city);
         new Preferences(this).setCity(city);
