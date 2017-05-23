@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         if (resultCode == RESULT_OK) {
             Place place = PlaceAutocomplete.getPlace(this, data);
             //latlong = place.getLatLng();
-            changeCity(place.getAddress().toString());
+            changeCity(place.getName().toString());
         } else if (resultCode == PlaceAutocomplete.RESULT_ERROR) {
             Status status = PlaceAutocomplete.getStatus(this, data);
         } else if (requestCode == RESULT_CANCELED) {
