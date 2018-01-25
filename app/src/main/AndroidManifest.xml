@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.morga.weatherwatch">
-
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -24,7 +24,6 @@
 
 
     <meta-data android:name="com.google.android.geo.API_KEY"
-        android:value="AIzaSyBJSCIvxRyDKfh2inQ2KKkKfBdSmxW-_j8"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
+        android:value="AIzaSyA9dJsct8kYM7VLm8_y4ADKi-WBG4pz2U8"/>
     </application>
 </manifest>
